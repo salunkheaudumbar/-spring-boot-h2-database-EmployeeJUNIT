@@ -7,7 +7,7 @@ import javax.persistence.Table;
 @Entity
 //defining class name as Table name
 @Table(name="Employee")
-public class Employee 
+public class Student 
 {
 //mark id as primary key
 @Id

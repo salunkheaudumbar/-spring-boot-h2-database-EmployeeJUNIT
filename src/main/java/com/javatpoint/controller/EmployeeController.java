@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.javatpoint.entity.Employee;
+import com.javatpoint.entity.Student;
 import com.javatpoint.service.EmployeeService;
 @RestController
 @RequestMapping(path = "/emp")
@@ -18,11 +18,11 @@ public class EmployeeController {
    @Autowired
    EmployeeService employeeService;
    @GetMapping("/employees")
-   public List<Employee> getAllEmployees(){
+   public List<Student> getAllEmployees(){
 	   return employeeService.getAllEmployees();
    }
    @GetMapping("/employee/{id}")
-   public Employee getEmployee(@PathVariable("id") int id) {
+   public Student getEmployee(@PathVariable("id") int id) {
 	   return employeeService.getEmployeeById(id);
    }
    @DeleteMapping("/employee/{id}")
@@ -30,11 +30,11 @@ public class EmployeeController {
 	   employeeService.deleteEmployeeById(id);
    }
    @PostMapping("/employee")
-   public void addEmployee(@RequestBody Employee employee) {
+   public void addEmployee(@RequestBody Student employee) {
 	   employeeService.saveOrUpdate(employee);
    }
    @PutMapping("/employee")
-   public void updateEmployee(@RequestBody Employee employee) {
+   public void updateEmployee(@RequestBody Student employee) {
 	   employeeService.saveOrUpdate(employee);
    }	
 }

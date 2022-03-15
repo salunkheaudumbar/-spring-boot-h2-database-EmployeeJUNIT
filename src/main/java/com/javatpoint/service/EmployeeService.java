@@ -4,21 +4,21 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.javatpoint.entity.Employee;
+import com.javatpoint.entity.Student;
 import com.javatpoint.repository.EmployeeRepository;
 @Service
 public class EmployeeService {
    @Autowired
    EmployeeRepository repository;
-   public Employee getEmployeeById(int id) {
+   public Student getEmployeeById(int id) {
 	   return repository.findById(id).get();
    }
-   public List<Employee> getAllEmployees(){
-	   List<Employee> employees = new ArrayList<Employee>();
+   public List<Student> getAllEmployees(){
+	   List<Student> employees = new ArrayList<Student>();
 	   repository.findAll().forEach(employee -> employees.add(employee));
 	   return employees;
    }
-   public void saveOrUpdate(Employee employee) {
+   public void saveOrUpdate(Student employee) {
 	   repository.save(employee);
    }
    public void deleteEmployeeById(int id) {

@@ -10,7 +10,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import com.javatpoint.entity.Employee;
+import com.javatpoint.entity.Student;
 import com.javatpoint.springbooth2databaseEmployeeJUNIT.SpringBootH2DatabaseEmployeeJunitApplication;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = SpringBootH2DatabaseEmployeeJunitApplication.class)
@@ -19,18 +19,18 @@ public class EmployeeServiceTest {
    private EmployeeService employeeService;
    @Test
    public void testGetAllEmployees() throws Exception {
-      Employee employee = getEmployee();
-      List<Employee> employees = new ArrayList<>();
+      Student employee = getEmployee();
+      List<Student> employees = new ArrayList<>();
       employees.add(employee);
       given(employeeService.getAllEmployees()).willReturn(employees);
-      List<Employee> result = employeeService.getAllEmployees();
+      List<Student> result = employeeService.getAllEmployees();
       assertEquals(result.size(), 1);
    }
    @Test
    public void testGetEmployee() throws Exception {
-      Employee employee = getEmployee();
+      Student employee = getEmployee();
       given(employeeService.getEmployeeById(1)).willReturn(employee);
-      Employee result = employeeService.getEmployeeById(1);
+      Student result = employeeService.getEmployeeById(1);
       assertEquals(result.getId(), 1);	
    }
    @Test
@@ -41,13 +41,13 @@ public class EmployeeServiceTest {
    }
    @Test
    public void testSaveOrUpdateEmployee() throws Exception {
-      Employee employee = getEmployee();
+      Student employee = getEmployee();
       doNothing().when(employeeService).saveOrUpdate(employee);	
       employeeService.saveOrUpdate(employee);
       assertTrue(true);
    }
-   private Employee getEmployee() {
-      Employee employee = new Employee();
+   private Student getEmployee() {
+      Student employee = new Student();
       employee.setId(1);
       employee.setName("Mahesh");
       employee.setAge(30);
